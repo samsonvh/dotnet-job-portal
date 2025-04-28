@@ -13,11 +13,8 @@ namespace JobPortal.Domain.Entities
         public Guid Id { get; set; }
         public string Title { get; set; } = string.Empty;
         public string Description { get; set; } = string.Empty;
-        public int NumberOfHires { get; set; }
-        public decimal? MinSalary { get; set; }
-        public decimal? MaxSalary { get; set; }
-        public string Currency { get; set; } = string.Empty;
-        public SalaryFrequency SalaryFrequency { get; set; } = SalaryFrequency.Monthly;
+        public int NumberOfHires { get; set; } = 1;
+        public SalaryRange SalaryRange { get; set; } = new SalaryRange();
         public ICollection<JobLocation> JobLocations { get; set; } = new List<JobLocation>();
         public DateTime PostedDate { get; set; }
         public DateTime? ExpirationDate { get; set; }

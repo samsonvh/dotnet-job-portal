@@ -14,7 +14,7 @@ namespace JobPortal.Domain.Entities
         public string? LogoUrl { get; set; }
         public string? Description { get; set; }
         public ICollection<CompanyLocation> CompanyLocations { get; set; } = new List<CompanyLocation>();
-        public CompanyStatus Status { get; set; }
+        public CompanyStatus Status { get; set; } = CompanyStatus.Active;
 
         public ICollection<JobPosting> JobPostings { get; set; } = new List<JobPosting>();
     }
