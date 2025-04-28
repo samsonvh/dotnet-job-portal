@@ -12,6 +12,7 @@ namespace JobPortal.Domain.Entities
         public string FullName { get; set; } = string.Empty;
         public string PhoneNumber { get; set; } = string.Empty;
         public string Address { get; set; } = string.Empty;
+        public string? Bio { get; set; }
         public string? ProfilePictureUrl { get; set; }
 
         public ICollection<Resume> Resumes { get; set; } = new List<Resume>();

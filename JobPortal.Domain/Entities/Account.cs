@@ -1,4 +1,5 @@
 ﻿using JobPortal.Domain.Enums;
+using JobPortal.Domain.Enums.Statuses;
 
 namespace JobPortal.Domain.Entities
 {
@@ -11,6 +12,7 @@ namespace JobPortal.Domain.Entities
         public string ProviderUserId { get; set; } = string.Empty;
         public UserRole Role { get; set; } = UserRole.Applicant;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+        public AccountStatus Status { get; set; } = AccountStatus.PendingVerification;
 
         public UserProfile? UserProfile { get; set; }
     }

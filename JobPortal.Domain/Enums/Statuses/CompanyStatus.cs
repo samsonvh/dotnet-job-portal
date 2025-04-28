@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JobPortal.Domain.Enums
+namespace JobPortal.Domain.Enums.Statuses
 {
-    public enum UserRole
+    public enum CompanyStatus
     {
-        Admin,
-        Moderator,
-        Recruiter,
-        Applicant,
+        Inactive,
+        Active,
+        Suspended,
     }
 }
