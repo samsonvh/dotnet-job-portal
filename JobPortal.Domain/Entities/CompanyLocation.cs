@@ -8,6 +8,7 @@ namespace JobPortal.Domain.Entities
 {
     public class CompanyLocation : Location
     {
+        public Guid Id { get; set; }
         public Guid CompanyId { get; set; }
         public Company Company { get; set; } = new Company();
     }

@@ -8,7 +8,8 @@ namespace JobPortal.Domain.Entities
 {
     public class JobLocation : Location
     {
-        public Guid JobId { get; set; }
-        public JobPosting Job { get; set; } = new JobPosting();
+        public Guid Id { get; set; }
+        public Guid JobPostingId { get; set; }
+        public JobPosting JobPosting { get; set; } = new JobPosting();
     }
 }

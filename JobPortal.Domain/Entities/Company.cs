@@ -18,12 +18,12 @@ namespace JobPortal.Domain.Entities
         public string? Industry { get; set; }
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public DateTime? UpdatedAt { get; set; }
-        public ICollection<CompanyLocation> Locations { get; set; } = new List<CompanyLocation>();
         public CompanyStatus Status { get; set; } = CompanyStatus.Active;
 
         public Guid AccountId { get; set; }
         public Account Account { get; set; } = new Account();
 
+        public ICollection<CompanyLocation> Locations { get; set; } = new List<CompanyLocation>();
         public ICollection<JobPosting> JobPostings { get; set; } = new List<JobPosting>();
         public ICollection<UserProfile> Recruiters { get; set; } = new List<UserProfile>();
     }
