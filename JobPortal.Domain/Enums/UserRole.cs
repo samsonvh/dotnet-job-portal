@@ -10,6 +10,7 @@ namespace JobPortal.Domain.Enums
     {
         Admin,
         Moderator,
+        Company,
         Recruiter,
         Applicant,
     }

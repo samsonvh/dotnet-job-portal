@@ -14,6 +14,7 @@ namespace JobPortal.Domain.Entities
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
         public AccountStatus Status { get; set; } = AccountStatus.PendingVerification;
 
+        public Company? Company { get; set; }
         public UserProfile? UserProfile { get; set; }
     }
 }
