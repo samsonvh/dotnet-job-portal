@@ -13,6 +13,6 @@ namespace JobPortal.Domain.Enums
         Weekly,
         Monthly,
         Yearly,
-        Negotiable
+        Negotiable,
     }
 }

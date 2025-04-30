@@ -17,5 +17,6 @@ namespace JobPortal.Domain.Entities
         public CompanyStatus Status { get; set; } = CompanyStatus.Active;
 
         public ICollection<JobPosting> JobPostings { get; set; } = new List<JobPosting>();
+        public ICollection<UserProfile> Recruiters { get; set; } = new List<UserProfile>();
     }
 }

@@ -12,5 +12,6 @@ namespace JobPortal.Domain.Enums.Statuses
         Open,
         Closed,
         Expired,
+        Draft,
     }
 }
