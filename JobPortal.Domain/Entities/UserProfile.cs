@@ -21,5 +21,7 @@ namespace JobPortal.Domain.Entities
 
         public Guid AccountId { get; set; }
         public Account Account { get; set; } = new Account();
+        public Guid? CompanyId { get; set; }
+        public Company? Company { get; set; }
     }
 }
