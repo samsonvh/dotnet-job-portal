@@ -1,4 +1,7 @@
 ﻿using JobPortal.Domain.Common;
+using JobPortal.Domain.Entities.Users.Applicants;
+using JobPortal.Domain.Entities.Users.Companies;
+using JobPortal.Domain.Entities.Users.Recruiters;
 using JobPortal.Domain.Enums.Entities.Users.Account;
 using System;
 using System.Collections.Generic;
@@ -18,5 +21,10 @@ namespace JobPortal.Domain.Entities.Users
 
         public Guid? CreatedById { get; set; }
         public Account? CreatedBy { get; set; }
+        public Company? Company { get; set; }
+        public Recruiter? Recruiter { get; set; }
+        public Applicant? Applicant { get; set; }
+
+        public virtual ICollection<Account> CreatedAccounts { get; set; } = new List<Account>();
     }
 }

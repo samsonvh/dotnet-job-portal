@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace JobPortal.Application.Common.Exceptions
 {
-    public class UnauthorizedException : Exception
+    public class AccountNotActiveException : Exception
     {
-        public UnauthorizedException(string message) : base(message)
+        public AccountNotActiveException(string message) : base(message)
         {
 
         }

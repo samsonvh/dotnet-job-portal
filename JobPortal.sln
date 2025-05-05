@@ -9,6 +9,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobPortal.Domain", "JobPort
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobPortal.Application", "JobPortal.Application\JobPortal.Application.csproj", "{4F06D585-14AF-4BC7-959E-3C8513C07CEB}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "infrastructure", "infrastructure", "{D93CB719-6C6E-4309-B003-32E4DD21B3B0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobPortal.Infrastructure.Persistence", "JobPortal.Infrastructure.Persistence\JobPortal.Infrastructure.Persistence.csproj", "{B59D5523-F316-4FEB-9995-35DF53BAABD1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,6 +27,10 @@ Global
 		{4F06D585-14AF-4BC7-959E-3C8513C07CEB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4F06D585-14AF-4BC7-959E-3C8513C07CEB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4F06D585-14AF-4BC7-959E-3C8513C07CEB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B59D5523-F316-4FEB-9995-35DF53BAABD1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B59D5523-F316-4FEB-9995-35DF53BAABD1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B59D5523-F316-4FEB-9995-35DF53BAABD1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B59D5523-F316-4FEB-9995-35DF53BAABD1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -30,6 +38,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{065FD7D3-5217-4EA3-85EB-BE6BEA2F70B8} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
 		{4F06D585-14AF-4BC7-959E-3C8513C07CEB} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{D93CB719-6C6E-4309-B003-32E4DD21B3B0} = {02EA681E-C7D8-13C7-8484-4AC65E1B71E8}
+		{B59D5523-F316-4FEB-9995-35DF53BAABD1} = {D93CB719-6C6E-4309-B003-32E4DD21B3B0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {03A8832D-5BAA-4145-9203-15EE73C03B43}

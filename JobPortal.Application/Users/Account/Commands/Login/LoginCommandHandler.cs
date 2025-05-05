@@ -1,4 +1,5 @@
-﻿using JobPortal.Application.Common.Interfaces.Repositories;
+﻿using JobPortal.Application.Common.Exceptions;
+using JobPortal.Application.Common.Interfaces.Repositories;
 using JobPortal.Application.Common.Interfaces.Services;
 using JobPortal.Domain.Entities.Users;
 using JobPortal.Domain.Enums.Entities.Users.Account;
@@ -19,17 +20,17 @@ namespace JobPortal.Application.Users.Account.Commands.Login
 
             if (account == null)
             {
-                throw new Exception();
+                throw new AuthenticationAccountNotFoundException("Account with the given email was not found.");
             }
 
             if (!IsPasswordValid(request.Password, account.PasswordHash))
             {
-                throw new Exception();
+                throw new AuthenticationInvalidCredentialsException("Invalid email or password.");
             }
 
             if (!IsAccountActive(account.Status))
             {
-                throw new Exception();
+                throw new AuthenticationAccountNotFoundException("Account is inactive or deleted.");
             }
 
             return new LoginResult

@@ -1,4 +1,5 @@
 ﻿using JobPortal.Domain.Common;
+using JobPortal.Domain.Entities.Jobs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,5 +15,7 @@ namespace JobPortal.Domain.Entities.Users.Applicants
 
         public Guid ApplicantId { get; set; }
         public Applicant Applicant { get; set; } = new Applicant();
+
+        public virtual ICollection<JobApplication> JobApplications { get; set; } = new List<JobApplication>();
     }
 }
