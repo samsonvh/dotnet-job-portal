@@ -41,7 +41,7 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
             builder.HasOne(jobPosting => jobPosting.CreatedBy)
                 .WithMany(recruiter => recruiter.JobPostings)
                 .HasForeignKey(jobPosting => jobPosting.CreatedById)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

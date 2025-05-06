@@ -28,7 +28,7 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
                 .WithOne(account => account.Company)
                 .HasForeignKey<Company>(company => company.AccountId)
                 .HasConstraintName("fk_company_account_id")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -27,7 +27,7 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
                 .WithMany(applicant => applicant.ApplicantResumes)
                 .HasForeignKey(resume => resume.ApplicantId)
                 .HasConstraintName("fk_applicant_resume_applicant_id")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

@@ -39,15 +39,15 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
             builder.HasOne(jobApplication => jobApplication.JobPosting)
                 .WithMany(jobPosting => jobPosting.JobApplications)
                 .HasForeignKey(jobApplication => jobApplication.JobPostingId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(jobApplication => jobApplication.Applicant)
                 .WithMany(applicant => applicant.JobApplications)
                 .HasForeignKey(jobApplication => jobApplication.ApplicantId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(jobApplication => jobApplication.ApplicantResume)
                 .WithMany(applicantResume => applicantResume.JobApplications)
                 .HasForeignKey(jobApplication => jobApplication.ApplicantResumeId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

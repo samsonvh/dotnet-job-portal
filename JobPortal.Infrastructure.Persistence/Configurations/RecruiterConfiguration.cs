@@ -28,12 +28,12 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
                 .WithOne(account => account.Recruiter)
                 .HasForeignKey<Recruiter>(recruiter => recruiter.AccountId)
                 .HasConstraintName("fk_recruiter_account_id")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(recruiter => recruiter.Company)
                 .WithMany(company => company.Recruiters)
                 .HasForeignKey(recruiter => recruiter.CompanyId)
                 .HasConstraintName("fk_recruiter_company_id")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

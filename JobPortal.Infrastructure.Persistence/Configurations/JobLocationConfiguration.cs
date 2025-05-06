@@ -25,11 +25,11 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
             builder.HasOne(jobLocation => jobLocation.JobPosting)
                 .WithMany(jobPosting => jobPosting.JobLocations)
                 .HasForeignKey(jobLocation => jobLocation.JobPostingId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
             builder.HasOne(jobLocation => jobLocation.CompanyLocation)
                 .WithMany(companyLocation => companyLocation.JobLocations)
                 .HasForeignKey(jobLocation => jobLocation.CompanyLocationId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

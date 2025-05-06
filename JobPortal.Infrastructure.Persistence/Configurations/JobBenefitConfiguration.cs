@@ -23,7 +23,7 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
             builder.HasOne(jobBenefit => jobBenefit.JobPosting)
                 .WithMany(jobPosting => jobPosting.JobBenefits)
                 .HasForeignKey(jobBenefit => jobBenefit.JobPostingId)
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

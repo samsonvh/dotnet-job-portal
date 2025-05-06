@@ -29,7 +29,7 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
                 .WithOne(account => account.Applicant)
                 .HasForeignKey<Applicant>(applicant => applicant.AccountId)
                 .HasConstraintName("fk_applicant_account_id")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }

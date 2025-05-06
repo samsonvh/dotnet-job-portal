@@ -25,12 +25,13 @@ namespace JobPortal.Infrastructure.Persistence.Configurations
             builder.Property(companyLocation => companyLocation.Longitude).HasColumnName("longitude").IsRequired(false);
             builder.Property(companyLocation => companyLocation.Latitude).HasColumnName("latitude").IsRequired(false);
             builder.Property(companyLocation => companyLocation.Status).HasColumnName("status").IsRequired();
+            builder.Property(companyLocation => companyLocation.CompanyId).HasColumnName("company_id").IsRequired();
 
             builder.HasOne(companyLocation => companyLocation.Company)
                 .WithMany(company => company.CompanyLocations)
                 .HasForeignKey(companyLocation => companyLocation.CompanyId)
                 .HasConstraintName("fk_company_location_company_id")
-                .OnDelete(DeleteBehavior.Cascade);
+                .OnDelete(DeleteBehavior.Restrict);
         }
     }
 }
