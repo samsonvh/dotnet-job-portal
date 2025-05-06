@@ -9,7 +9,7 @@ namespace JobPortal.Domain.Entities.Jobs
 {
     public class JobBenefit : BaseEntity
     {
-        public string Requirement { get; set; } = string.Empty;
+        public string Benefit { get; set; } = string.Empty;
 
         public Guid JobPostingId { get; set; }
         public JobPosting JobPosting { get; set; } = new JobPosting();
