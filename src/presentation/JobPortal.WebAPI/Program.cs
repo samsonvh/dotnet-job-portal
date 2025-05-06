@@ -1,12 +1,14 @@
 using JobPortal.Infrastructure.Persistence;
+using JobPortal.WebAPI.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddDbContext<JobPortalDbContext>(options =>
-    options.UseSqlServer("Server=.\\SAMSON1;Database=JobPortalTestInfra;User Id=sa;password=123456;Encrypt=false;Trusted_Connection=True;TrustServerCertificate=True;"));
+builder.Services.AddApplicationDependencies();
+builder.Services.AddPersistenceDependencies(builder.Configuration);
+builder.Services.AddInfrastructureDependencies();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

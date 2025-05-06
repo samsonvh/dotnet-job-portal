@@ -15,7 +15,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\JobPortal.Infrastructure.Persistence\JobPortal.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\application\JobPortal.Application\JobPortal.Application.csproj" />
+    <ProjectReference Include="..\..\domain\JobPortal.Domain\JobPortal.Domain.csproj" />
+    <ProjectReference Include="..\..\infrastructure\JobPortal.Infrastructure.Persistence\JobPortal.Infrastructure.Persistence.csproj" />
+    <ProjectReference Include="..\..\infrastructure\JobPortal.Infrastructure\JobPortal.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
