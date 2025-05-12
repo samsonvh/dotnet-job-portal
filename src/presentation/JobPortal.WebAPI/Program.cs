@@ -1,5 +1,6 @@
+using JobPortal.Application;
+using JobPortal.Infrastructure;
 using JobPortal.Infrastructure.Persistence;
-using JobPortal.WebAPI.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -7,8 +8,8 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddApplicationDependencies();
-builder.Services.AddPersistenceDependencies(builder.Configuration);
 builder.Services.AddInfrastructureDependencies();
+builder.Services.AddPersistenceDependencies(builder.Configuration);
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
