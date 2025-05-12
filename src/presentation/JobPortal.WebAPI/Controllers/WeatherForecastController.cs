@@ -1,3 +1,5 @@
+using JobPortal.Application.Users.Account.Commands.Login;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace JobPortal.WebAPI.Controllers
@@ -12,10 +14,12 @@ namespace JobPortal.WebAPI.Controllers
         };
 
         private readonly ILogger<WeatherForecastController> _logger;
+        private readonly ISender _sender;
 
-        public WeatherForecastController(ILogger<WeatherForecastController> logger)
+        public WeatherForecastController(ILogger<WeatherForecastController> logger, ISender sender)
         {
             _logger = logger;
+            _sender = sender;
         }
 
         [HttpGet(Name = "GetWeatherForecast")]
@@ -28,6 +32,13 @@ namespace JobPortal.WebAPI.Controllers
                 Summary = Summaries[Random.Shared.Next(Summaries.Length)]
             })
             .ToArray();
+        }
+
+        [HttpPost(Name = "PostWeatherForecast")]
+        public async Task<IActionResult> Login([FromBody] LoginCommand command)
+        {
+            var result = await _sender.Send(command);
+            return Ok(result);
         }
     }
 }

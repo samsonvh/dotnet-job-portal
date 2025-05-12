@@ -1,6 +1,7 @@
 using JobPortal.Application;
 using JobPortal.Infrastructure;
 using JobPortal.Infrastructure.Persistence;
+using JobPortal.WebAPI.Middlewares;
 using Microsoft.EntityFrameworkCore;
 using System;
 
@@ -26,6 +27,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseAuthorization();
 

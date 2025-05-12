@@ -1,4 +1,5 @@
-﻿using MediatR;
+﻿using JobPortal.Application.Common.Abstractions.Messaging;
+using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace JobPortal.Application.Users.Account.Commands.Login
 {
-    public class LoginCommand : IRequest<LoginResult>
+    public class LoginCommand : ICommand<LoginResult>
     {
         public string Email { get; set; } = string.Empty;
         public string Password { get; set; } = string.Empty;
