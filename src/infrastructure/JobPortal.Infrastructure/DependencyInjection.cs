@@ -14,7 +14,8 @@ namespace JobPortal.Infrastructure
         public static IServiceCollection AddInfrastructureDependencies(this IServiceCollection services)
         {
             services.AddScoped<IPasswordHasher, PasswordHasher>();
-            services.AddScoped<IJwtGenerator, JwtGenerator>(); 
+            services.AddScoped<IJwtGenerator, JwtGenerator>();
+            services.AddScoped<ISequentialGuidGenerator, SequentialGuidGenerator>();
             return services;
         }
     }

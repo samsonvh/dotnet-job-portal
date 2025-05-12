@@ -17,6 +17,7 @@ namespace JobPortal.Infrastructure.Persistence
         {
             services.AddDbContext<JobPortalDbContext>(options => options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
             services.AddScoped<IAccountRepository, AccountRepository>();
+            services.AddScoped<IApplicantRepository, ApplicantRepository>();
             return services;
         }
     }

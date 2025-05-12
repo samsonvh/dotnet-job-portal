@@ -9,6 +9,8 @@ namespace JobPortal.Application.Common.Interfaces.Repositories
 {
     public interface IAccountRepository
     {
-        Task<Account?> GetByEmailAsync(string email);    
+        Task<Account?> GetByEmailAsync(string email);
+        Task<Account?> GetByEmailIncludingProfileAsync(string email);
+        Task AddAsync(Account account);
     }
 }

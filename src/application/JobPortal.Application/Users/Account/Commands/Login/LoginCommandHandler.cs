@@ -16,18 +16,33 @@ namespace JobPortal.Application.Users.Account.Commands.Login
     {
         public async Task<LoginResult> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
-            var account = await accountRepository.GetByEmailAsync(request.Email);
+            var account = await accountRepository.GetByEmailIncludingProfileAsync(request.Email);
 
-            return new LoginResult
+            var loginResult = new LoginResult
             {
                 Token = jwtGenerator.GenerateJwtToken(account!.Id, account.Email, account.Role),
                 Email = account.Email,
-                Role = account.Role
+                Role = account.Role,
             };
+
+            switch (account.Role)
+            {
+                case EnumAccountRole.Applicant:
+                    loginResult.FirstName = account.Applicant?.FirstName;
+                    loginResult.LastName = account.Applicant?.LastName;
+                    break;
+                case EnumAccountRole.Company:
+                    loginResult.FirstName = account.Company?.Name;
+                    break;
+                case EnumAccountRole.Recruiter:
+                    loginResult.FirstName = account.Recruiter?.FirstName;
+                    loginResult.LastName = account.Recruiter?.LastName;
+                    break;
+                default:
+                    break;
+            }
+
+            return loginResult;
         }
-
-        private bool IsPasswordValid(string password, string hashedPassword) => passwordHasher.VerifyPassword(password, hashedPassword);
-
-        private bool IsAccountActive(EnumAccountStatus status) => status is EnumAccountStatus.Active or EnumAccountStatus.Pending;
     }
 }

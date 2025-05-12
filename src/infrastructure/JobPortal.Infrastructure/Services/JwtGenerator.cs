@@ -21,14 +21,15 @@ namespace JobPortal.Infrastructure.Services
                 new Claim(ClaimTypes.Role, role.ToString())
             };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("job_portal_testing"));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("job_portal_testing_32_bytes_key!"));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
                 issuer: "job_portal",
                 audience: "job_portal",
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(30),
+                notBefore: DateTime.UtcNow,
+                expires: DateTime.UtcNow.AddMinutes(30),
                 signingCredentials: credentials
             );
 
