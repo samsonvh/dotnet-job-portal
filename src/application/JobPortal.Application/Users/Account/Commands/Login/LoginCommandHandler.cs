@@ -18,24 +18,9 @@ namespace JobPortal.Application.Users.Account.Commands.Login
         {
             var account = await accountRepository.GetByEmailAsync(request.Email);
 
-            if (account == null)
-            {
-                throw new AuthenticationAccountNotFoundException("Account with the given email was not found.");
-            }
-
-            if (!IsPasswordValid(request.Password, account.PasswordHash))
-            {
-                throw new AuthenticationInvalidCredentialsException("Invalid email or password.");
-            }
-
-            if (!IsAccountActive(account.Status))
-            {
-                throw new AuthenticationAccountNotFoundException("Account is inactive or deleted.");
-            }
-
             return new LoginResult
             {
-                Token = jwtGenerator.GenerateJwtToken(account.Id, account.Email, account.Role),
+                Token = jwtGenerator.GenerateJwtToken(account!.Id, account.Email, account.Role),
                 Email = account.Email,
                 Role = account.Role
             };
