@@ -1,5 +1,6 @@
 using JobPortal.Application.Users.Account.Commands.Login;
 using JobPortal.Application.Users.Applicant.Commands.Register;
+using JobPortal.Application.Users.Company.Commands.Register;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
