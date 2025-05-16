@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace JobPortal.Application.Users.Applicant.Commands.Register
 {
-    public class ApplicantRegisterCommandHandler(IAccountRepository accountRepository, IApplicantRepository applicantRepository, ISequentialGuidGenerator sequentialGuidGenerator, IPasswordHasher passwordHasher) : IRequestHandler<ApplicantRegisterCommand, Guid>
+    public class ApplicantRegisterCommandHandler(IApplicantRepository applicantRepository, ISequentialGuidGenerator sequentialGuidGenerator, IPasswordHasher passwordHasher) : IRequestHandler<ApplicantRegisterCommand, Guid>
     {
         public async Task<Guid> Handle(ApplicantRegisterCommand request, CancellationToken cancellationToken)
         {
@@ -36,7 +36,6 @@ namespace JobPortal.Application.Users.Applicant.Commands.Register
                 Account = account
             };
 
-            await accountRepository.AddAsync(account);
             await applicantRepository.AddAsync(applicant);
 
             return applicant.Id;

@@ -1,4 +1,5 @@
 ﻿using JobPortal.Application.Common.Abstractions.Messaging;
+using JobPortal.Application.Common.Dtos.CompanyLocation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,5 +18,7 @@ namespace JobPortal.Application.Users.Company.Commands.Register
 
         public string PhoneNumber { get; set; } = string.Empty;
         public string? WebsiteUrl { get; set; } = string.Empty;
+
+        public List<AddCompanyLocationDto> Locations { get; set; } = new List<AddCompanyLocationDto>();
     }
 }

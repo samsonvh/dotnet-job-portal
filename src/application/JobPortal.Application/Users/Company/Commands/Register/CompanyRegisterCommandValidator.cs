@@ -1,5 +1,7 @@
 ﻿using FluentValidation;
+using JobPortal.Application.Common.Dtos.CompanyLocation;
 using JobPortal.Application.Common.Interfaces.Repositories;
+using JobPortal.Application.Common.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -44,6 +46,18 @@ namespace JobPortal.Application.Users.Company.Commands.Register
             RuleFor(x => x.WebsiteUrl)
                 .Must(url => string.IsNullOrEmpty(url) || Uri.IsWellFormedUriString(url, UriKind.Absolute))
                 .WithMessage("Website URL must be a valid URL or empty.");
+
+            RuleFor(x => x.Locations)
+               .NotEmpty().WithMessage("At least one location is required.")
+               .Must(HaveExactlyOneHeadquarter)
+               .WithMessage("Exactly one location must be marked as headquarter.");
+            RuleForEach(x => x.Locations)
+                .SetValidator(new CompanyLocationAddValidator());
+        }
+
+        private bool HaveExactlyOneHeadquarter(List<AddCompanyLocationDto> locations)
+        {
+            return locations.Count(location => location.IsHeadquarter) == 1;
         }
     }
 }
